@@ -1,0 +1,26 @@
+# dependencies
+/node_modules
+
+# Next.js / Cloudflare build output
+/.next/
+/out/
+/.open-next/
+/.wrangler/
+next-env.d.ts
+*.tsbuildinfo
+
+# private local database (npm run localdb:init)
+/.pgdata/
+
+# secrets — never commit these
+.env
+.env.local
+.env.*.local
+.dev.vars
+*.cf-build-hidden
+
+# logs / OS
+npm-debug.log*
+*.log
+.DS_Store
+Thumbs.db

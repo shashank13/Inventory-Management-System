@@ -1,0 +1,3 @@
+# This folder is the new Next.js app (run with `npm run dev`), not part of the PHP site.
+# Never let Apache serve it (it contains .env with passwords).
+Require all denied

@@ -1,0 +1,28 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "nfpc-inventory",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-10-01",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "observability": { "enabled": true },
+
+  // Database: either
+  //   (a) set the DATABASE_URL secret:  npx wrangler secret put DATABASE_URL
+  //   (b) or (recommended) use Hyperdrive for connection pooling close to the database:
+  //         npx wrangler hyperdrive create nfpc-db --connection-string="postgres://user:pass@host:5432/nfpc_inventory"
+  //       then uncomment the block below and paste the id it prints.
+  // "hyperdrive": [
+  //   { "binding": "HYPERDRIVE", "id": "<HYPERDRIVE_ID>", "localConnectionString": "postgres://postgres:postgres@localhost:5432/nfpc_inventory" }
+  // ],
+
+  // Non-secret settings (secrets such as SMTP_PASS / RESEND_API_KEY go in `wrangler secret put`).
+  "vars": {
+    "APP_URL": "",
+    "MAIL_TRANSPORT": "none",
+    "MAIL_FROM_NAME": "Nitte FPC Inventory"
+  }
+}
